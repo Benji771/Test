@@ -13,8 +13,8 @@ const pricingTiers = [
   },
   {
     title: 'Vollanalyse',
-    price: 'nach Projektvereinbarung',
-    description: 'Individuell abgestimmt',
+    price: 'Individuell abgestimmt',
+    description: 'Nach Vereinbarung',
     features: [
       'Analyse größerer Importdatenmengen',
       'Priorisierte Prüffälle',
@@ -25,7 +25,7 @@ const pricingTiers = [
   },
   {
     title: 'Erfolgsvergütung',
-    price: 'nur bei Ergebnis',
+    price: 'Nur bei realisierter Erstattung',
     description: 'Risikogerechtes Modell',
     features: [
       'Vergütung nur auf tatsächlich realisierte Rückerstattungen oder Gutschriften',
@@ -37,7 +37,7 @@ const pricingTiers = [
   },
 ]
 
-export default function Pricing() {
+export default function Fees() {
   return (
     <section className="bg-slate-50 py-24 lg:py-32" id="pricing">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,13 +52,13 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-3 gap-6 mb-12 auto-rows-max">
           {pricingTiers.map((tier) => (
             <div
               key={tier.title}
-              className={`rounded-2xl border transition-all duration-200 ${
+              className={`rounded-2xl border transition-all duration-200 flex flex-col h-full ${
                 tier.highlight
-                  ? 'bg-navy-900 border-navy-800 shadow-lg scale-105 md:scale-100'
+                  ? 'bg-navy-900 border-navy-800 shadow-lg md:scale-105'
                   : 'bg-white border-slate-100 hover:shadow-md hover:border-slate-200'
               }`}
             >
@@ -68,25 +68,29 @@ export default function Pricing() {
                 </div>
               )}
 
-              <div className="p-8">
-                <h3 className={`text-lg font-semibold mb-1 ${tier.highlight ? 'text-white' : 'text-navy-900'}`}>
-                  {tier.title}
-                </h3>
-                <p className={`text-xs mb-6 ${tier.highlight ? 'text-white/60' : 'text-slate-500'}`}>
-                  {tier.description}
-                </p>
+              <div className="p-8 flex flex-col h-full">
+                <div>
+                  <h3 className={`text-lg font-semibold mb-1 ${tier.highlight ? 'text-white' : 'text-navy-900'}`}>
+                    {tier.title}
+                  </h3>
+                  <p className={`text-xs mb-6 min-h-[1.25rem] leading-normal ${tier.highlight ? 'text-white/60' : 'text-slate-500'}`}>
+                    {tier.description}
+                  </p>
 
-                <div className="mb-6">
-                  <div className={`text-3xl font-bold ${tier.highlight ? 'text-accent-light' : 'text-navy-900'}`}>
-                    {tier.price}
+                  <div className="mb-6">
+                    <div className={`text-2xl lg:text-3xl font-bold leading-snug break-words max-w-full ${
+                      tier.highlight ? 'text-accent-light' : 'text-navy-900'
+                    }`}>
+                      {tier.price}
+                    </div>
                   </div>
                 </div>
 
-                <ul className="space-y-3">
+                <ul className="space-y-3 flex-1">
                   {tier.features.map((feature) => (
                     <li
                       key={feature}
-                      className={`flex items-start gap-3 text-sm leading-relaxed ${
+                      className={`flex items-start gap-3 text-sm leading-relaxed min-w-0 ${
                         tier.highlight ? 'text-white/80' : 'text-slate-600'
                       }`}
                     >
@@ -99,7 +103,7 @@ export default function Pricing() {
                           strokeLinejoin="round"
                         />
                       </svg>
-                      {feature}
+                      <span className="break-words">{feature}</span>
                     </li>
                   ))}
                 </ul>
