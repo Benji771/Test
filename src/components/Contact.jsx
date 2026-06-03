@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Contact() {
   return (
     <section className="bg-white py-20 lg:py-24" id="kontakt">
@@ -15,9 +17,9 @@ export default function Contact() {
             Sie uns direkt.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="/kontakt" className="btn-primary px-8 py-3 text-sm font-medium">
+            <Link to="/kontakt" className="btn-primary px-8 py-3 text-sm font-medium">
               Kontaktformular öffnen
-            </a>
+            </Link>
             <a
               href="mailto:team@zollmetrics.com"
               className="btn-secondary px-8 py-3 text-sm font-medium"

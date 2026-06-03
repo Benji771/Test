@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const navLinks = [
   { label: 'Lösung', href: '#loesung' },
@@ -27,7 +28,7 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <div className="w-7 h-7 rounded bg-accent flex items-center justify-center">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-white">
                 <rect x="1" y="3" width="14" height="2" rx="1" fill="currentColor" opacity="0.9" />
@@ -39,7 +40,7 @@ export default function Header() {
             <span className="text-white font-semibold text-base tracking-tight">
               Zoll<span className="text-accent-light">Metrics</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
@@ -56,9 +57,9 @@ export default function Header() {
 
           {/* CTA */}
           <div className="hidden md:block">
-            <a href="#upload-flow" className="btn-primary-dark text-sm px-5 py-2.5">
+            <Link to="/kontakt" className="btn-primary-dark text-sm px-5 py-2.5">
               Kostenlosen Leak-Scan starten
-            </a>
+            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -94,9 +95,9 @@ export default function Header() {
                 </a>
               ))}
               <div className="pt-3 px-2">
-                <a href="#upload-flow" onClick={() => setMobileOpen(false)} className="btn-primary-dark w-full text-sm">
+                <Link to="/kontakt" onClick={() => setMobileOpen(false)} className="btn-primary-dark w-full text-sm">
                   Kostenlosen Leak-Scan starten
-                </a>
+                </Link>
               </div>
             </nav>
           </div>

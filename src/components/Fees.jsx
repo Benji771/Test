@@ -58,16 +58,10 @@ export default function Fees() {
               key={tier.title}
               className={`rounded-2xl border transition-all duration-200 flex flex-col h-full ${
                 tier.highlight
-                  ? 'bg-navy-900 border-navy-800 shadow-lg md:scale-105'
+                  ? 'bg-navy-900 border-navy-800 shadow-lg'
                   : 'bg-white border-slate-100 hover:shadow-md hover:border-slate-200'
               }`}
             >
-              {tier.highlight && (
-                <div className="bg-accent text-white text-xs font-semibold uppercase tracking-widest px-4 py-1.5 text-center border-b border-accent/20">
-                  Beliebt
-                </div>
-              )}
-
               <div className="p-8 flex flex-col h-full">
                 <div>
                   <h3 className={`text-lg font-semibold mb-1 ${tier.highlight ? 'text-white' : 'text-navy-900'}`}>

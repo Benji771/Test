@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Footer() {
   return (
     <footer className="bg-navy-950 border-t border-white/5">
@@ -48,14 +50,14 @@ export default function Footer() {
             <h4 className="text-xs font-semibold uppercase tracking-widest text-white/30 mb-4">Rechtliches</h4>
             <ul className="space-y-2.5">
               {[
-                { label: 'Impressum', href: '/impressum' },
-                { label: 'Datenschutz', href: '/datenschutz' },
-                { label: 'Kontakt', href: '/kontakt' },
+                { label: 'Impressum', path: '/impressum' },
+                { label: 'Datenschutz', path: '/datenschutz' },
+                { label: 'Kontakt', path: '/kontakt' },
               ].map((l) => (
-                <li key={l.href}>
-                  <a href={l.href} className="text-sm text-white/50 hover:text-white/80 transition-colors">
+                <li key={l.path}>
+                  <Link to={l.path} className="text-sm text-white/50 hover:text-white/80 transition-colors">
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
