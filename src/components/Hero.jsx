@@ -1,73 +1,56 @@
-function ScanCard() {
-  const items = [
-    { label: 'Analysierte Positionen', value: '1.248', color: 'text-slate-700' },
-    { label: 'Erkannte Auffälligkeiten', value: '37', color: 'text-warning' },
-    { label: 'Priorisierte Prüffälle', value: '5', color: 'text-accent' },
-  ]
-
-  const flags = [
-    { code: 'HS 8471.30', desc: 'Tarifnummer inkonsistent (3×)', status: 'flag' },
-    { code: 'INV-2024-114', desc: 'Zollwert Abweichung erkannt', status: 'flag' },
-    { code: 'DEL-2023-88', desc: 'Präferenznachweis fehlt', status: 'warn' },
-    { code: 'RET-2024-22', desc: 'Retoure – keine Abschreibung', status: 'warn' },
-  ]
-
+function UploadPreview() {
   return (
     <div className="relative w-full max-w-sm mx-auto">
       {/* Glow */}
       <div className="absolute -inset-4 bg-accent/10 rounded-2xl blur-xl" />
 
       <div className="relative bg-navy-800 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
-        {/* Header bar */}
-        <div className="px-5 py-3.5 border-b border-white/10 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-white/70 text-xs font-medium tracking-wide uppercase">Import Leak Scan</span>
+        {/* Header */}
+        <div className="px-5 py-3.5 border-b border-white/10 flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          <span className="text-white/70 text-xs font-medium tracking-wide uppercase">Kostenlosen Scan starten</span>
+        </div>
+
+        {/* Content */}
+        <div className="p-6 space-y-4">
+          <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="flex-shrink-0 text-accent-light">
+              <path d="M10 2v12M5 9l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <rect x="2" y="15" width="16" height="2" rx="1" fill="currentColor" opacity="0.3" />
+            </svg>
+            <div>
+              <div className="text-xs font-semibold text-white">Schritt 1</div>
+              <div className="text-xs text-white/60">Kurzformular ausfüllen</div>
+            </div>
           </div>
-          <span className="text-xs text-white/40 font-mono">v2.1</span>
-        </div>
 
-        {/* Stats row */}
-        <div className="grid grid-cols-3 divide-x divide-white/10 border-b border-white/10">
-          {items.map((item) => (
-            <div key={item.label} className="px-4 py-3 text-center">
-              <div className={`text-xl font-semibold font-mono ${item.color}`}>{item.value}</div>
-              <div className="text-xs text-white/40 mt-0.5 leading-tight">{item.label}</div>
+          <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="flex-shrink-0 text-accent-light">
+              <path d="M10 2v12M5 9l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <rect x="2" y="15" width="16" height="2" rx="1" fill="currentColor" opacity="0.3" />
+            </svg>
+            <div>
+              <div className="text-xs font-semibold text-white">Schritt 2</div>
+              <div className="text-xs text-white/60">3–10 Test-Dokumente hochladen</div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* Flags list */}
-        <div className="p-4 space-y-2">
-          {flags.map((f) => (
-            <div key={f.code} className="flex items-start gap-3 p-2.5 rounded-lg bg-white/5 border border-white/5">
-              <div className={`mt-0.5 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${
-                f.status === 'flag' ? 'bg-warning/20' : 'bg-accent/20'
-              }`}>
-                {f.status === 'flag' ? (
-                  <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                    <path d="M4 2v2.5M4 6h.01" stroke="#d97706" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                ) : (
-                  <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                    <circle cx="4" cy="4" r="2" fill="#1d6fa4" />
-                  </svg>
-                )}
-              </div>
-              <div className="min-w-0">
-                <div className="text-xs font-mono text-white/60">{f.code}</div>
-                <div className="text-xs text-white/80 mt-0.5">{f.desc}</div>
-              </div>
+          <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="flex-shrink-0 text-accent-light">
+              <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" />
+              <path d="M7 10l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <div>
+              <div className="text-xs font-semibold text-white">Schritt 3</div>
+              <div className="text-xs text-white/60">Potenzialeinschätzung erhalten</div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* Potenzial footer */}
-        <div className="px-4 py-3 border-t border-white/10 flex items-center justify-between">
-          <span className="text-xs text-white/50">Potenzial-Status</span>
-          <span className="text-xs font-medium px-2.5 py-1 rounded-md bg-accent/20 text-accent-light border border-accent/30">
-            Zur fachlichen Prüfung
-          </span>
+          <div className="pt-2 border-t border-white/10">
+            <p className="text-xs text-white/50">
+              <strong className="text-white/70">Gesamtdauer:</strong> ca. 5–10 Minuten
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -75,10 +58,10 @@ function ScanCard() {
 }
 
 const badges = [
-  'Für DACH-Importeure',
-  'Datenbasierte Vorprüfung',
-  'Keine Rückerstattungsgarantie – klare Potenzialbewertung',
-  'Sicherer Datenraum nach Freigabe',
+  'Kein Demo-Call nötig',
+  'Upload in wenigen Minuten',
+  'Datenbasierte Voranalyse',
+  'Keine Rückerstattungsgarantie',
 ]
 
 export default function Hero() {
@@ -105,7 +88,7 @@ export default function Hero() {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/10 mb-8">
               <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-              <span className="text-xs text-accent font-medium tracking-wide">DACH Import-Duty-Leak-Scanner</span>
+              <span className="text-xs text-accent font-medium tracking-wide">Self-Serve Leak-Analyse</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-5xl font-semibold text-white leading-tight tracking-tight mb-6">
@@ -113,17 +96,16 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-lg">
-              ZollMetrics analysiert Zollbescheide, Handelsrechnungen und Speditionsdaten auf mögliche
-              Überzahlungen – datenbasiert, strukturiert und vorbereitet für die fachliche Prüfung durch
-              Ihren Zollprofi.
+              Starten Sie ohne Sales-Call: Laden Sie ausgewählte Importdokumente hoch und erhalten Sie eine
+              erste datenbasierte Potenzialeinschätzung.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-12">
-              <a href="#kontakt" className="btn-primary-dark px-7 py-3.5 text-sm font-medium">
-                Kostenlose Potenzialanalyse anfragen
+              <a href="#upload-flow" className="btn-primary-dark px-7 py-3.5 text-sm font-medium">
+                Kostenlosen Leak-Scan starten
               </a>
               <a href="#ablauf" className="btn-ghost px-7 py-3.5 text-sm font-medium">
-                Ablauf ansehen
+                So funktioniert der Upload
               </a>
             </div>
 
@@ -143,9 +125,9 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: UI Card */}
+          {/* Right: Upload Preview */}
           <div className="flex justify-center lg:justify-end">
-            <ScanCard />
+            <UploadPreview />
           </div>
         </div>
       </div>

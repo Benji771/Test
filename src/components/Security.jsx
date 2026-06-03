@@ -1,23 +1,23 @@
 const securityPoints = [
   {
     title: 'Kein Versand per normaler E-Mail',
-    desc: 'Sensible Importdokumente werden niemals per unverschlüsselter E-Mail übermittelt. Alle Dokumente laufen ausschließlich über freigegebene Kanäle.',
+    desc: 'Sensible Importdokumente werden niemals per unverschlüsselter E-Mail übermittelt. Alle Uploads laufen über das sichere Upload-Portal.',
   },
   {
-    title: 'Geschützter Datenraum nach Freigabe',
-    desc: 'Pilotkunden erhalten erst nach individueller Freigabe Zugang zu einem dedizierten, geschützten Upload-Bereich.',
+    title: 'Erstcheck mit begrenztem Test-Set',
+    desc: 'Sie laden nur 3–10 ausgewählte Testdokumente hoch – nicht vollständige Jahresarchive. Das minimiert Risiken und reduziert Komplexität.',
   },
   {
-    title: 'Datenminimierung',
-    desc: 'Wir arbeiten ausschließlich mit den Dokumenten, die für die jeweilige Analyse relevant sind. Keine Sammlung nicht benötigter Unterlagen.',
+    title: 'Datenminimierung: nur relevante Dokumente',
+    desc: 'Wir arbeiten ausschließlich mit den Dokumenten, die für die Potenzialprüfung relevant sind. Keine Sammlung nicht benötigter Unterlagen.',
   },
   {
-    title: 'Löschung nach Projektabschluss',
-    desc: 'Übermittelte Dokumente und Analysedaten werden nach Abschluss des Projekts nach individueller Vereinbarung gelöscht.',
+    title: 'Löschung und Projektumfang werden vorab vereinbart',
+    desc: 'Übermittelte Dokumente und Analysedaten werden nach Abschluss des Erstchecks nach individueller Vereinbarung gelöscht oder archiviert.',
   },
   {
-    title: 'NDA und AVV möglich',
-    desc: 'Sobald ein formales Projekt startet, können Vertraulichkeitsvereinbarungen (NDA) und ein Auftragsverarbeitungsvertrag (AVV) abgeschlossen werden.',
+    title: 'NDA/AVV möglich vor formaler Analyse',
+    desc: 'Sobald ein prüffähiger Fall identifiziert wurde und ein formales Projekt startet, können Vertraulichkeitsvereinbarungen und Auftragsverarbeitungsverträge abgeschlossen werden.',
   },
 ]
 
@@ -30,11 +30,11 @@ export default function Security() {
           <div>
             <span className="section-label">Datensicherheit</span>
             <h2 className="text-3xl sm:text-4xl font-semibold text-navy-900 mt-3 leading-tight">
-              Sensible Importdaten brauchen saubere Prozesse.
+              Sensibler Upload, kontrollierter Erstcheck.
             </h2>
             <p className="mt-5 text-lg text-slate-600 leading-relaxed">
-              Importdokumente enthalten vertrauliche Geschäftsinformationen. Wir behandeln sie
-              entsprechend – mit klaren Prozessen und keinen übertriebenen Versprechen.
+              Importdokumente enthalten vertrauliche Geschäftsinformationen. Unsere Upload-Lösung ist so
+              gestaltet, dass Sie kontrollieren, was Sie teilen – und es bleibt minimalisiert.
             </p>
 
             {/* What we don't claim */}
@@ -42,9 +42,9 @@ export default function Security() {
               <h3 className="text-sm font-semibold text-slate-700 mb-3">Was wir nicht behaupten:</h3>
               <ul className="space-y-2">
                 {[
-                  '„100 % sicher" oder absolute Datensicherheitsgarantien',
+                  '„100 % sicher" oder garantierte absolute Datensicherheit',
                   'Pauschale DSGVO-Konformitätszertifizierungen',
-                  'Technische Versprechen ohne Grundlage',
+                  'Technische Versprechen wie „256-bit SSL" ohne Nachweise',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-slate-500">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0 mt-0.5">
@@ -58,7 +58,7 @@ export default function Security() {
 
             <p className="mt-5 text-sm text-slate-500 leading-relaxed">
               Wir kommunizieren klar, was wir tun – und was wir nicht tun. Fragen zu konkreten
-              Datenschutzanforderungen besprechen wir gerne vor Projektstart.
+              Datenschutzanforderungen besprechen wir gerne vor dem Upload.
             </p>
           </div>
 

@@ -1,5 +1,7 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
+import UploadIntro from './components/UploadIntro'
+import UploadFlow from './components/UploadFlow'
 import Problem from './components/Problem'
 import Solution from './components/Solution'
 import WhatWeCheck from './components/WhatWeCheck'
@@ -16,6 +18,8 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <UploadIntro />
+        <UploadFlow />
         <Problem />
         <Solution />
         <WhatWeCheck />

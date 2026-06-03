@@ -56,8 +56,8 @@ export default function Header() {
 
           {/* CTA */}
           <div className="hidden md:block">
-            <a href="#kontakt" className="btn-primary-dark text-sm px-5 py-2.5">
-              Kostenlose Potenzialanalyse
+            <a href="#upload-flow" className="btn-primary-dark text-sm px-5 py-2.5">
+              Kostenlosen Leak-Scan starten
             </a>
           </div>
 
@@ -94,8 +94,8 @@ export default function Header() {
                 </a>
               ))}
               <div className="pt-3 px-2">
-                <a href="#kontakt" onClick={() => setMobileOpen(false)} className="btn-primary-dark w-full text-sm">
-                  Kostenlose Potenzialanalyse
+                <a href="#upload-flow" onClick={() => setMobileOpen(false)} className="btn-primary-dark w-full text-sm">
+                  Kostenlosen Leak-Scan starten
                 </a>
               </div>
             </nav>
