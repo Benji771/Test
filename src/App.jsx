@@ -7,7 +7,8 @@ import Solution from './components/Solution'
 import WhatWeCheck from './components/WhatWeCheck'
 import Process from './components/Process'
 import ForWhom from './components/ForWhom'
-import Pricing from './components/Pricing'
+import Pilot from './components/Pilot'
+import Fees from './components/Fees'
 import Security from './components/Security'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -25,7 +26,8 @@ export default function App() {
         <WhatWeCheck />
         <Process />
         <ForWhom />
-        <Pricing />
+        <Pilot />
+        <Fees />
         <Security />
         <Contact />
       </main>

@@ -1,11 +1,23 @@
 import { useState } from 'react'
 
-const importVolumes = [
+const importCounts = [
   { value: '', label: 'Bitte wählen' },
-  { value: '1-20', label: '1–20 Importvorgänge / Jahr' },
-  { value: '21-100', label: '21–100 Importvorgänge / Jahr' },
-  { value: '101-500', label: '101–500 Importvorgänge / Jahr' },
-  { value: '500+', label: 'Mehr als 500 Importvorgänge / Jahr' },
+  { value: 'under-25', label: 'unter 25' },
+  { value: '25-100', label: '25–100' },
+  { value: '101-500', label: '101–500' },
+  { value: '501-2000', label: '501–2.000' },
+  { value: '2000+', label: '2.000+' },
+  { value: 'unsure', label: 'unsicher' },
+]
+
+const importValues = [
+  { value: '', label: 'Bitte wählen' },
+  { value: 'under-100k', label: 'unter 100.000 €' },
+  { value: '100k-500k', label: '100.000–500.000 €' },
+  { value: '500k-2m', label: '500.000–2 Mio. €' },
+  { value: '2m-10m', label: '2–10 Mio. €' },
+  { value: 'over-10m', label: 'über 10 Mio. €' },
+  { value: 'unsure', label: 'unsicher' },
 ]
 
 const inputClass =
@@ -116,7 +128,8 @@ export default function UploadFlow() {
     company: '',
     website: '',
     role: '',
-    importVolume: '',
+    importCount: '',
+    importValue: '',
     countries: '',
     categories: '',
     files: [],
@@ -140,7 +153,7 @@ export default function UploadFlow() {
 
   const canProceed = () => {
     if (currentStep === 0) {
-      return formData.firstName && formData.lastName && formData.email && formData.company && formData.importVolume && formData.countries && formData.categories
+      return formData.firstName && formData.lastName && formData.email && formData.company && formData.importCount && formData.importValue && formData.countries && formData.categories
     }
     if (currentStep === 1) {
       return formData.files.length > 0
@@ -247,9 +260,19 @@ export default function UploadFlow() {
                   </Field>
                 </div>
 
-                <Field label="Geschätzte Importvorgänge pro Jahr" required>
-                  <select name="importVolume" value={formData.importVolume} onChange={handleChange} required className={inputClass}>
-                    {importVolumes.map((opt) => (
+                <Field label="Geschätzte Importvorgänge pro Jahr" required hint="Gemeint sind Zoll-/Importvorgänge, nicht einzelne Produkte oder Bestellungen.">
+                  <select name="importCount" value={formData.importCount} onChange={handleChange} required className={inputClass}>
+                    {importCounts.map((opt) => (
+                      <option key={opt.value} value={opt.value} disabled={opt.value === ''}>
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
+                </Field>
+
+                <Field label="Geschätztes jährliches Importvolumen" required hint="Eine grobe Schätzung reicht. Das hilft uns einzuschätzen, ob sich ein Leak-Scan wirtschaftlich lohnt.">
+                  <select name="importValue" value={formData.importValue} onChange={handleChange} required className={inputClass}>
+                    {importValues.map((opt) => (
                       <option key={opt.value} value={opt.value} disabled={opt.value === ''}>
                         {opt.label}
                       </option>

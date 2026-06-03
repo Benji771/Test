@@ -43,7 +43,7 @@ const pilotFeatures = [
   },
 ]
 
-export default function Pricing() {
+export default function Pilot() {
   return (
     <section className="bg-navy-900 py-24 lg:py-32" id="pilot">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,7 +72,7 @@ export default function Pricing() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-          <a href="#kontakt" className="btn-primary-dark px-8 py-3.5 text-sm font-medium">
+          <a href="#upload-flow" className="btn-primary-dark px-8 py-3.5 text-sm font-medium">
             Pilotplatz anfragen
           </a>
           <p className="text-sm text-white/40">
